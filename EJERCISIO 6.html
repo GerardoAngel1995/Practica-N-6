@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Ejercisio 6</title>
+</head>
+<body>
+    <script>
+        //programa una funcion que obtenga un numero entre 501 y 600
+          const aleatorio =() => console.info(Math.round((Math.random()*100)+500));
+        
+              
+          aleatorio();
+
+          /*programa una funcion que reciba un numero y evalue si es capicua o no (que se lee igual en un 
+          sentido que en otro).pe.mifuncion(2002)devolvera true*/ 
+          const capicua = (numero = 0) => {
+            if(!numero)return console.warn("no ingresaste un numero");
+
+            if(typeof numero !=="number")return console.error(`El valor "${numero}" ingresado ,NO es un numero`);
+
+            numero = numero.toString();
+         let alReves = numero.split("").reverse().join("")
+
+         return(numero===alReves)
+         ?console.info(`Si es capicua,Numero original ${numero},Numero al reves ${alReves}`)
+         :console.info(`No es capicua,Numero original ${numero},Numero al reves ${alReves}`)
+
+         capicua(); 
+
+         
+   
+         }
+
+        /*programe una funcionque calcule un factorial de un numero (el factorial de un entero 
+        positivo n , se define como el producto de todos los numeros de enteros psitivos desde 1 hasta n).pe
+        .mifuncion(5)devolvera 120 */
+
+        const factorial =(numero=undefined) =>{
+            if(!numero===undefined)return console.warn("no ingresaste un numero");
+
+            if(typeof numero !=="number")return console.error(`El valor "${numero}" ingresado ,NO es un numero`);
+            
+            if(numero===0)return console.error("El numero no puede ser 0");
+
+            if(Math.sign(numero)===-1)return console.error("El numero no puede ser negativo");
+            
+            let factorial=1;
+
+            for(let i=numero;i>1;i--){
+                factorial=factorial*i;
+            }
+            factorial();
+            factorial("5");
+            factorial([1,2,3]);
+
+        }
+
+        /*programa una funcion que determine si un numero es primo(aquel que solo es divisible por si
+         mismo y 1)o no , pe.mifuncion(7)devolvera true*/
+         const numeroPrimo=(numero=undefined)=>{
+
+            if(!numero===undefined)return console.warn("no ingresaste un numero");
+
+            if(typeof numero !=="number")return console.error(`El valor "${numero}" ingresado ,NO es un numero`);
+
+            if(numero===0)return console.error("El numero no puede ser 0");
+
+            if(numero===1)return console.error("El numero no puede ser 1");
+
+            if(Math.sign(numero)===-1)return console.error("El numero no puede ser negativo");
+            
+            let divisible= false;
+
+            for(let i=2;i<numero;i++){
+
+                if((numero%i)===0){
+                    divisible=true;
+                    break;
+
+                }
+
+            }
+            return(divisible)
+            ?console.log(`El numero ${numero}, No es primo`)
+            :console.log(`El numero ${numero}, Si es primo`)
+         }
+         numeroPrimo();
+
+         /*programa una funcion que determine si un numero es par o impar ,pe.mifuncion(29) devolvera
+          impar*/
+          const numeroParImpar=(numero=undefined)=>{
+            if(!numero===undefined)return console.warn("no ingresaste un numero");
+
+            if(typeof numero !=="number")return console.console.error(`El valor "${numero}" ingresado ,NO es un numero`);
+
+            return((numero%2)===0)
+            ?console.info(`El numero ${numero} es par`)
+            :console.info(`El numero ${numero} es inpar`)
+
+          }
+        
+          /*programa una funcion para convertir grados celsius a Fahrenheit y viceversa.pe.mifuncion
+          (0,"c") devolvera 32°F */
+
+        const convertirGrados=(grados=undefined,unidad=undefined)=>{
+
+            if(!grados===undefined)return console.warn("No ingresaste grados a convertir");
+
+            if(typeof grados !=="number")return console.error(`El valor "${grados}" ingresado ,NO es un numero`);
+
+            if(!unidad===undefined)return console.warn("No ingresaste el tipo de grados a convertir");
+
+            if(typeof unidad !=="number")return console.error(`El valor "${unidad}" ingresado ,NO es un numero`);
+
+            if(unidad.length !==1||!/(C|F)/.test(unidad)) return console.warn("valor de unidad no reconocido");
+            
+            if(unidad ==="C"){
+                
+                return console.info(`${grados}°C=${Math.round((grados*(9/5))+32)}°F`);
+               
+            }
+            if(unidad ==="F"){
+                return console.info(`${grados}°F=${Math.round(((grados-32)*(9/5)))}°C`);
+                
+               
+            } else{
+                return console.error("El tipo de grados a convertir no es valido")
+                }
+            
+        
+        }
+        convertirGrados();
+
+
+
+
+        
+        /*programa una funcion para convertir numeros de base binaria a decimal i viseversa .pe.
+        mifuncion(100.2)devolvera 4 base 10*/
+        const convertirBinarioDecimal=(numero=undefined, base=undefined) => {
+            if(!numero)return console.warn("no ingresaste un numero");
+
+            if(typeof numero !=="number")return console.error(`El valor "${numero}" ingresado ,NO es un numero`);
+
+            if(!base)return console.warn("no ingresaste un numero");
+
+            if(typeof base !=="number")return console.error(`El valor "${base}" ingresado ,NO es un numero`);
+            if(base ===2){
+                return console.info(`${numero} base${base}=${parseInt(numero,base)}base 10`);
+
+            }else if(base===10){
+                return console.info(`${numero}base${base}=${(numero.toString(2))}base 2`);
+            }else{
+                return console.error("El tipo de base a convertir No es valido");
+            }
+        }
+         convertirBinarioDecimal();
+         convertirBinarioDecimal(100,2);
+         convertirBinarioDecimal(4,10);
+
+
+        /*programa una funcion que devuelva el monto final despues de aplicar un descuento a una
+         cantidad dada .pe.mifuncion(1000,20)devolvera 800*/
+         const aplicarDescuento =(monto=undefined,descuento=0)=>{
+
+             if(monto===undefined) return console.warn("No ingresaste monto");
+             
+             if(typeof monto!=="number")return console.error(`El valor "${monto}" ingresado , No es un numero`);
+
+             if(monto=== 0) return console.error("El monto no puede ser 0");
+
+             if(Math.sign(monto)===-1)return conmsole.error("El monto no puede ser negativo");
+
+             if(typeof descuento!=="number")return console.error(`El valor "${descuento}" ingresado , No es un numero`);
+
+             if(Math.sign(descuento)===-1)return conmsole.error("El descuento no puede ser negativo");
+
+             return console.info(`${monto}-${descuento}%=${monto-((monto*descuento)/100)}`)
+    
+
+         }
+         aplicarDescuento();
+
+
+
+
+
+        /*programa una funcion que dada una fechA valida determine cuantos años han pasado hasta el dia
+         de hoy, pe.mifuncion(new date(1984,4,23)) devolvera 25 años (en 2020)*/
+         
+         const CalcularaAnios =(fecha=undefined)=> {
+             if(fecha===undefined)return console.warn("no ingresaste la fecha");
+
+             if(!fecha instanceof Date)return console.error("el valor que ingresaste no es una fecha valida");
+             
+
+             let hoyMenosFecha = new Date().getTime()-fecha.getTime(),
+             aniosEnMs=10000*60*60*24*365
+
+             aniosHumanos = Math.floor(hoyMenosFecha/aniosEnMs);
+
+             return(Math.sign(aniosHumanos)===-1)
+             ?console.info(`Faltan ${Math.abs(aniosHumanos)} , años para el ${fecha.getFullYear()}`)
+             :(Math.sign(aniosHumanos)===1) 
+             ?console.info(`Faltan ${Math.abs(aniosHumanos)} , años para el ${fecha.getFullYear()}`)
+             :console.info(`Estamos en el año actual ${fecha.getFullYear()}`)
+             
+
+         }
+             CalcularaAnios();
+
+         
+
+
+                    //Gerardo Angel Lopez Garcia
+
+    </script>
+</body>
+</html>
